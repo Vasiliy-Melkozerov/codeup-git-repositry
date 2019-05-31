@@ -1,0 +1,40 @@
+.fancy-header{
+    color:blue;
+}
+header {
+    text-align: center;
+}
+header {
+    text-decoration: underline;
+}
+html {
+    background-color: lightpink;
+}
+body {
+    background-image: url("../img/architectural-design-architecture-buildings-2078774.jpg");
+    background-size: 150px;
+}
+li {
+    list-style-type: circle;
+}
+body {
+    font-family: 'Playfair Display', serif;
+}
+tr {
+    padding:400px;
+}
+td {
+    padding:400px;
+}
+a:link {
+color:yellow;
+}
+a:visited {
+color:dodgerblue;
+}
+a:hover {
+color:azure;
+}
+a:active {
+color:chartreuse;
+}
