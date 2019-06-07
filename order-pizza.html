@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Papa Palpatine's Pizza</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Pizza World</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Order online <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Menu</a>
+            </li>
+            <li class="nav-item">
+                <nav class="navbar navbar-light bg-light">
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Zip code" aria-label="Search">
+                        <button class="btn button-style" type="submit">Search stores near you!</button>
+                    </form>
+                </nav>
+            </li>
+        </ul>
+        <span class="navbar-text">Sign up</span>
+        <img src="img/login-person.png" alt="lil person" style="width: 25px; height: 25px;" .pull-right>
+    </div>
+</nav>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Welcome to Pizza World!</h1>
+        <p class="lead"></p>
+    </div>
+</div>
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+           aria-selected="true"><span class="badge badge-pill badge-primary">1</span>Size and Crust</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+           aria-selected="false"><span class="badge badge-pill badge-primary">2</span>Cheese and Sauce</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+           aria-selected="false"><span class="badge badge-pill badge-primary">3</span>Toppings</a>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <div class="card">
+            <h5 class="card-header p-3 mb-2 bg-info text-white">Choose size and crust</h5>
+            <div class="card-body">
+                <div class="card">
+                    <div class="card-header gray">
+                        Hand tossed
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste.</li>
+                        <li class="list-group-item"><label class="btn active">
+                            <input type="radio" name="options" id="option1" autocomplete="off" checked>Small (10")
+                        </label></li>
+                        <li class="list-group-item"><label class="btn active">
+                            <input type="radio" name="options" id="option2" autocomplete="off" checked> Medium (12")
+                        </label></li>
+                    </ul>
+                </div>
+                <br>
+                <div class="card">
+                    <div class="card">
+                        <div class="card-header gray">
+                            Crunchy thin crust
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Thin enough for the optimum crispy to crunchy ratio.</li>
+                            <li class="list-group-item"><label class="btn active">
+                                <input type="radio" name="option" id="medium12" autocomplete="off" checked>Medium (12")
+                            </label></li>
+                            <li class="list-group-item"><label class="btn active">
+                                <input type="radio" name="option" id="large14" autocomplete="off" checked> Large (14")
+                            </label></li>
+                        </ul>
+                    </div>
+                </div>
+                <footer><a href="#" class="btn btn-primary">Next Step ></a></footer>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="card">
+            <h5 class="card-header p-3 mb-2 bg-info text-white">Choose the cheese & sauce</h5>
+            <div class="card-body">
+                <div class="card">
+                    <div class="card-header gray">
+                        Cheese
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">How much?</li>
+                        <li class="list-group-item">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown button
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+                <br>
+                <div class="card">
+                    <div class="card">
+                        <div class="card-header gray">
+                            Sauce
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">What type?</li>
+                            <li class="list-group-item">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Dropdown button
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </li>
+                            <li class="list-group-item">How much?</li>
+                            <li class="list-group-item">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Dropdown button
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <footer>
+                    <a href="#" class="btn btn-primary">< Previous Step </a>
+                    <a href="#" class="btn btn-primary">Next Step ></a>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        <div class="card">
+            <h5 class="card-header p-3 mb-2 bg-info text-white">Choose Toppings</h5>
+            <div class="card-body">
+                <div class="card">
+                    <div class="card-header gray">
+                        Choose Meats
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><label class="btn  active">
+                            <input type="checkbox" name="options" id="option1" autocomplete="off">Beef
+                        </label></li>
+                        <li class="list-group-item"><label class="btn  active">
+                            <input type="checkbox" name="options" id="option1" autocomplete="off">Ham
+                        </label></li>
+                        <li class="list-group-item"><label class="btn  active">
+                            <input type="checkbox" name="options" id="option1" autocomplete="off">Philly Steak
+                        </label></li>
+                        <li class="list-group-item"><label class="btn  active">
+                            <input type="checkbox" name="options" id="option1" autocomplete="off">Bacon
+                        </label></li>
+                    </ul>
+                </div>
+                <br>
+                <div class="card">
+                    <div class="card">
+                        <div class="card-header gray">
+                            Choose Non-Meats
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><label class="btn  active">
+                                <input type="checkbox" name="options" id="option1" autocomplete="off">Green Peppers
+                            </label></li>
+                            <li class="list-group-item"><label class="btn  active">
+                                <input type="checkbox" name="options" id="option1" autocomplete="off">Mushrooms
+                            </label></li>
+                            <li class="list-group-item"><label class="btn  active">
+                                <input type="checkbox" name="options" id="option1" autocomplete="off">Onions
+                            </label></li>
+                            <li class="list-group-item"><label class="btn  active">
+                                <input type="checkbox" name="options" id="option1" autocomplete="off">Jalepeño Peppers
+                            </label></li>
+                        </ul>
+                    </div>
+                </div>
+                <br>
+                <footer>
+                    <a href="#" class="btn btn-primary">< Previous Step </a>
+                    <a href="#" class="btn btn-primary">Checkout ></a>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
+

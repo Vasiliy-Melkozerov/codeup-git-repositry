@@ -1,0 +1,51 @@
+.container {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1200px;
+    box-sizing:border-box;
+}
+.row {
+    width:100%;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.column {
+    float: left;
+    padding: 10px;
+    border: 1px solid black;
+}
+.one {
+    background-color:red;
+    width:calc(100% - 22px);
+}
+.one-third {
+    background-color:yellow;
+    width: calc(33.33% - 22px);
+}
+.one-half {
+    background-color:orange;
+    width: calc(50% - 22px);
+}
+.one-fourth {
+    background-color:green;
+    width:calc(25% - 22px);
+}
+.one-sixth {
+    background-color: aqua;
+    width:calc(calc(100% / 6) - 22px);
+}
+.one-eighth {
+    background-color:lightpink;
+    width:calc(calc(100% / 8) - 22px);
+}
+@media screen and (min-width:1px) and (max-width: 991px) {
+    .column.one-half {
+        width: 100%;
+    }
+    .column.one-third{
+        width:100;
+    }
+}
