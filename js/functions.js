@@ -9,9 +9,10 @@
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
 function sayHello(name) {
-    return "hello "+ name;
-};
-console.log(sayHello(name; "codeup"));
+    return "hello " + name;
+}
+
+console.log(sayHello("codeup"));
 /**
  * TODO:
  * Call the function 'sayHello' and pass your name as a string literal argument.
@@ -19,16 +20,17 @@ console.log(sayHello(name; "codeup"));
  *
  * console.log 'helloMessage' to check your work
  */
-sayHello("Vasiliy");
-var helloMessage =sayHello(name: "Vasiliy");
-console.log(sayHello(myName));
+// sayHello("Vasiliy");
+var helloMessage = sayHello("Vasiliy");
+console.log(helloMessage);
 /**
  * TODO:
  * Store your name as a string in a variable named 'myName', and pass that
  * variable to the 'sayHello' function. You should see the same output in the
  * console.
  */
-myName()
+var myName = "Vasiliy";
+console.log = (sayHello(myName));
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
 var random = Math.floor((Math.random() * 3) + 1);
@@ -50,9 +52,10 @@ var random = Math.floor((Math.random() * 3) + 1);
  * different result everytime you refresh the page if you are using the random
  * number)
  */
-function isTwo(num){
+function isTwo(num) {
     return num === 2;
 }
+
 console.log(random);
 console.log(isTwo(random));
 /**
@@ -66,12 +69,15 @@ console.log(isTwo(random));
  * > calculateTip(0.25, 25.50) // returns 6.37
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
-var total = prompt((message: "What is your total?"));
-var tip = Number(prompt(message: "How much would you like to tip?"));
-function calculateTip(p,t){
+var total = Number(prompt("What is your total?"));
+var tip = Number(prompt("How much would you like to tip?"));
+
+function calculateTip(t, p) {
     return p * (t * .01);
 }
-alert(calculateTip(total,p));
+
+alert("You should tip: $" + calculateTip(total, tip));
+
 /**
  * TODO:
  * Use prompt and alert in combination with your calculateTip function to
@@ -92,9 +98,12 @@ alert(calculateTip(total,p));
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
-var initialPrice = Number(prompt(message: "what was the inital price?"))
-var discountValue = Number(prompt(message: "How much discount to apply?"))
-function applyDiscount(i,d){
-    return i - (i*d);
+
+var initialPrice = Number(prompt("What was the initial price?"));
+var discountValue = Number(prompt("How much discount to apply?"));
+
+function applyDiscount(i, d) {
+    return i - (i * d);
 }
-console.log("total is: " + applyDiscount(initialPrice,discountValue));
+
+console.log("total is: " + applyDiscount(initialPrice, discountValue));

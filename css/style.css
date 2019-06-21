@@ -10,10 +10,6 @@ header {
 html {
     background-color: lightpink;
 }
-body {
-    background-image: url("../img/architectural-design-architecture-buildings-2078774.jpg");
-    background-size: 150px;
-}
 li {
     list-style-type: circle;
 }
