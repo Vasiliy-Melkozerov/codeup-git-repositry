@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Weather app</title>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!--needs rel to work, rel is used to recognize it as in fact a stylesheet-->
+    <style>
+        #map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 700px;
+        }
+    </style>
+</head>
+<body>
+<h1 style="text-align:center">My weather project</h1>
+<h2 id="searchedLocation"></h2>
+<main class="container row" style="margin:auto">
+    <!--weather is currently being commented out as i am trying to place my specific values in managable locations-->
+    <!--<div id="weather"></div>-->
+    <!--TODO: place these into CSS presentable boxes, OF WHICH I should probably use bootstrap DONE-->
+    <!--TODO: wind speed is measured in mph-->
+    <div id="box1" class="col-4">
+        <span id="high1" class="temp"></span>
+        <span id="low1" class="temp"></span>
+        <span id='summary1'></span>
+        <span id="humidity1"></span>
+        <span id="wind1"></span>
+        <span id="pressure1"></span>
+    </div>
+    <div id="box2" class="col-4">
+        <span id="high2" class="temp"></span>
+        <span id="low2" class="temp"></span>
+        <span id='summary2'></span>
+        <span id="humidity2"></span>
+        <span id="wind2"></span>
+        <span id="pressure2"></span>
+    </div>
+    <div id="box3" class="col-4">
+        <span id="high3" class="temp"></span>
+        <span id="low3" class="temp"></span>
+        <span id='summary3'></span>
+        <span id="humidity3"></span>
+        <span id="wind3"></span>
+        <span id="pressure3"></span></div>
+    <!--I just finished setting each div its own spans so i can specifically place what i want into those accurately-->
+</main>
+<div id="map" class="col-10" style="margin:auto"></div>
+<div class="input-group mb-3" id="geocoder">
+    <input type="text" class="form-control" placeholder="Location" aria-label="Recipient's username" aria-describedby="basic-addon2">
+    <div class="input-group-append">
+        <span class="input-group-text" id="basic-addon2">Search</span>
+    </div>
+</div>
+<script src="js/keys.js"></script>
+<script src="js/jquery-2.2.4.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+<script>
+    var val = '';
+    $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4241,-98.4936").done(function (data) {
+        console.log(data);
+        // Also you can pass info from one function into another as I've just learned!
+        processData(data.daily.data);
+        // The time in daily represents today and a week out, as i've just learned
+        var dateObject = new Date(data.currently.time * 1000);
+        console.log(dateObject.toString());
+        // this here being a part of the weather div i mentioned earlier
+        // $('#weather').append(data.currently.summary);
+        // $('#weather').append('<br>');
+        // $('#weather').append(dateObject);
+    });
+    val = $('#geocoder').val().toString();
+
+    function searchResults(){
+        console.log(val);
+    }
+
+    function processData(data) {
+        console.log(data);
+        var htmlString = "";
+        // data.forEach(function (daily, index) {
+        //Just learned how to use forEach loop in example
+        //learned here how to implement if statement to deliver just the three value i am looking for in my array
+        // htmlString += '<p>' + daily.apparentTemperatureHigh + ('&deg; F') + '</p>';
+        $('#high1').append('Temp: ' + data[0].apparentTemperatureHigh + '&deg;' + ' /');
+        $('#low1').append(data[0].apparentTemperatureLow + '&deg;' + '<br>');
+        $('#summary1').append('Summary: ' + data[0].summary + '<br>');
+        $('#humidity1').append('Humidity: ' + data[0].humidity + '<br>');
+        $('#wind1').append('Windspeed: ' + data[0].windSpeed + (' mph') + '<br>');
+        $('#pressure1').append('Pressure: ' + data[0].pressure);
+        $('#high2').append('Temp: ' + data[1].apparentTemperatureHigh + ('&deg;') + ' /');
+        $('#low2').append(data[1].apparentTemperatureLow + ('&deg;') + '<br>');
+        $('#summary2').append('Summary: ' + data[1].summary + '<br>');
+        $('#humidity2').append('Humidity: ' + data[1].humidity + '<br>');
+        $('#wind2').append('Windspeed: ' + data[1].windSpeed + (' mph') + '<br>');
+        $('#pressure2').append('Pressure: ' + data[1].pressure);
+        $('#high3').append('Temp: ' + data[2].apparentTemperatureHigh + ('&deg;') + ' /');
+        $('#low3').append(data[2].apparentTemperatureLow + ('&deg;') + '<br>');
+        $('#summary3').append('Summary: ' + data[2].summary + '<br>');
+        $('#humidity3').append('Humidity: ' + data[2].humidity + '<br>');
+        $('#wind3').append('Windspeed: ' + data[2].windSpeed + (' mph') + '<br>');
+        $('#pressure3').append('Pressure: ' + data[2].pressure);
+        // so i opted in to hand jam these out to specified spans so that i could work it as currently that's how i know to do it
+    }
+
+    // }
+
+    //I am thinking about independently writing out variables in the form of functions so that i can call specific items
+    //The items specifically needed are highs(apparentTemperatureHigh)/lows(apparentTemperatureLow)
+    // (icon reflective of weather conditions: OF WHICH there is already a data set for called icons specifically),
+    // weather conditions (summary), humidity(humidity), wind(windSpeed), and pressure(pressure)
+
+</script>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<!--now time to figure out how to use a marker, or first setting up the spacing how i want to give me the squares first-->
+<script>
+    mapboxgl.accessToken = mapboxToken;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 10,
+        center: [-98.4916, 29.4252]
+    });
+    var accessToken = mapboxToken;
+    mapboxgl.accessToken = accessToken;
+
+</script>
+<script>
+    var coordinates = document.getElementById('coordinates');
+    var marker = new mapboxgl.Marker({
+        draggable: true
+    })
+        .setLngLat([-98.4916, 29.4252])
+        .addTo(map);
+
+    function onDragEnd() {
+        var lngLat = marker.getLngLat();
+        var lng = lngLat.lng.toFixed(4);
+        var lat = lngLat.lat.toFixed(4);
+        coord = [lng, lat];
+        coordinates.style.display = 'block';
+        coordinates.innerHTML = 'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+    }
+
+    marker.on('dragend', onDragEnd);
+</script>
+</body>
+</html>
+<!--trashed code-->
+<!--             } else if (index === 0){-->
+<!--                 $('#high1').append(daily.apparentTemperatureHigh);-->
+<!--             }-->
+<!--                 htmlString += '<hr>';-->
+<!--        htmlString += '<p>' + data[0].apparentTemperatureHigh + '</p>';-->
+<!--        htmlString += '<hr>';-->
+<!--        htmlString += '<p>' + data[1].apparentTemperatureHigh + '</p>';-->
+<!--        htmlString += '<hr>';-->
+<!--        htmlString += '<p>' + data[2].apparentTemperatureHigh + '</p>';-->
+<!--        htmlString += '<hr>';-->
