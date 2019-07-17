@@ -2,9 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Ajax blog posts</title>
 </head>
 <body>
+<h1>Ajax blog posts</h1>
+<h3 id="titles"></h3>
+<div id="posts"></div>
+<script src="js/jquery-2.2.4.js"></script>
 
+<script>
+    (function () {
+       'use strict';
+        var html = "";
+        $.ajax('data/blog.json').done(function(data){
+            console.log(data);
+            console.log(data[0].title);
+            $('#titles').append(data[0].title);
+            // html += '<div class="posts">';
+            // html += '<h1>' + data[0] + '</h1>';
+            // html += '<p>' + data[0] + '</p>';
+            // html += '<p>' + data[0] + '</p>';
+            // html += '</div>';
+        });
+
+    })();
+
+</script>
 </body>
 </html>

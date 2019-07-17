@@ -23,40 +23,45 @@
 <main class="container row" style="margin:auto">
     <!--weather is currently being commented out as i am trying to place my specific values in managable locations-->
     <!--<div id="weather"></div>-->
-    <!--TODO: place these into CSS presentable boxes, OF WHICH I should probably use bootstrap DONE-->
-    <!--TODO: wind speed is measured in mph-->
-    <div id="box1" class="col-4">
+    <div id="box1" class="col-4 border border-dark">
         <span id="high1" class="temp"></span>
         <span id="low1" class="temp"></span>
         <span id='summary1'></span>
         <span id="humidity1"></span>
         <span id="wind1"></span>
         <span id="pressure1"></span>
+        <span id="icon1"></span>
     </div>
-    <div id="box2" class="col-4">
+    <div id="box2" class="col-4 border border-dark">
         <span id="high2" class="temp"></span>
         <span id="low2" class="temp"></span>
         <span id='summary2'></span>
         <span id="humidity2"></span>
         <span id="wind2"></span>
         <span id="pressure2"></span>
+        <span id="icon2"></span>
     </div>
-    <div id="box3" class="col-4">
+    <div id="box3" class="col-4 border border-dark">
         <span id="high3" class="temp"></span>
         <span id="low3" class="temp"></span>
         <span id='summary3'></span>
         <span id="humidity3"></span>
         <span id="wind3"></span>
-        <span id="pressure3"></span></div>
+        <span id="pressure3"></span>
+        <span id="icon3"></span>
+    </div>
     <!--I just finished setting each div its own spans so i can specifically place what i want into those accurately-->
 </main>
 <div id="map" class="col-10" style="margin:auto"></div>
 <div class="input-group mb-3" id="geocoder">
-    <input type="text" class="form-control" placeholder="Location" aria-label="Recipient's username" aria-describedby="basic-addon2">
+    <input type="text" class="form-control" placeholder="Location" aria-label="Recipient's username"
+           aria-describedby="basic-addon2">
     <div class="input-group-append">
         <span class="input-group-text" id="basic-addon2">Search</span>
     </div>
 </div>
+
+
 <script src="js/keys.js"></script>
 <script src="js/jquery-2.2.4.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
@@ -71,17 +76,14 @@
         console.log(data);
         // Also you can pass info from one function into another as I've just learned!
         processData(data.daily.data);
+        useIcons(data.daily.data);
         // The time in daily represents today and a week out, as i've just learned
         var dateObject = new Date(data.currently.time * 1000);
         console.log(dateObject.toString());
-        // this here being a part of the weather div i mentioned earlier
-        // $('#weather').append(data.currently.summary);
-        // $('#weather').append('<br>');
-        // $('#weather').append(dateObject);
     });
     val = $('#geocoder').val().toString();
 
-    function searchResults(){
+    function searchResults() {
         console.log(val);
     }
 
@@ -113,8 +115,21 @@
         // so i opted in to hand jam these out to specified spans so that i could work it as currently that's how i know to do it
     }
 
+    // var icons = [
+    //     {icon: 'clear-day', url: 'assets/SVG/Sun.svg'},
+    //     {icon: 'clear-night', url: 'assets/SVG/Moon.svg'},
+    //     {icon: 'rain', url: 'assets/SVG/Cloud-Rain.svg'},
+    //     {icon: 'snow', url: 'assets/SVG/Cloud-Snow.svg'},
+    //     {icon: 'sleet', url: 'assets/SVG/Could-Hail.svg'},
+    //     {icon: 'wind', url: 'assets/SVG/Wind.svg'},
+    //     {icon: 'fog', url:'assets/SVG/Cloud-Fog-Alt.svg'},
+    //     {icon: 'cloudy',url:'assets/SVG/.svg'},
+    //     {icon: 'partly-cloudy-day', url:'assets/SVG/.svg'},
+    //     {icon: 'partly-cloudy-night', url:'assets/SVG/.svg'}
+    // ]
+    // function useIcons(data){
+    //     if()
     // }
-
     //I am thinking about independently writing out variables in the form of functions so that i can call specific items
     //The items specifically needed are highs(apparentTemperatureHigh)/lows(apparentTemperatureLow)
     // (icon reflective of weather conditions: OF WHICH there is already a data set for called icons specifically),

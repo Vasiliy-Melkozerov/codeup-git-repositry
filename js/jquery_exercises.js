@@ -1,2 +1,9 @@
 "use strict";
-$('li').css('font-size' , '200px');
+$(document).ready(
+$('#birdUp').click(function() {
+    $(this).css('background-color', 'blue');
+})
+$('#weOutHere').dblclick(function() {
+    $(this).css('font-size' , '18px');
+})
+);

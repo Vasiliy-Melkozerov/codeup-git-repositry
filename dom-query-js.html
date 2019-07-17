@@ -24,7 +24,13 @@
     pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
-<button id="btn1">Click Me!</button>
+<button id="btn1">Change main header to Javascript is Cool</button>
+<br>
+<button id="btn2">Change Hello Again to blue</button>
+<br>
+<button id="btn3">To complete the mission</button>
+<br>
+
 <script>
     (function() {
         "use strict";
@@ -32,36 +38,45 @@
         var mainHeader = document.getElementById("main-header");
 
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-        mainHeader.innerHTML="JavaScript is Cool";
+        var listener = function (event) {
+            mainHeader.innerHTML = "JavaScript is Cool";
+        }
+        document.getElementById('btn1').addEventListener('click',listener, false)
 
         // TODO: Uncomment the next line and get the sub header element by id
         var subHeader = document.getElementById("sub-header");
 
         // TODO: Set the text color of subHeader to blue
-        subHeader.style.color="blue";
+        var listener = function (event) {
+            subHeader.style.color = "blue";
+        }
+        document.getElementById('btn2').addEventListener('click',listener, false)
 
         // TODO: Uncomment the next line and get all list items
-        var listItems = document.getElementsByTagName('li');
+            var listItems = document.getElementsByTagName('li');
+
 
         // TODO: Set text color on every other list item to grey
         // TODO: Set text color of li with dbid = 1 to blue
     for(var i = 0; i< listItems.length; i++) {
-        var dbid= listItems[i].getAttribute('data-bdib');
+        var dbid= listItems[i].getAttribute('data-dbib');
         if(dbid == 1){
             listItems[i].style.color = "blue";
         }else if(dbid %2==0) {
             listItems[i].style.color="grey";
-        }
-    }
+        } }
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
         var subParagraphs = document.getElementsByClassName('sub-paragraph');
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-        subParagraphs[0].innerText = "Mission Accomplished!";
         var listener = function (event) {
-            alert('You clicked the button!');
+        subParagraphs[0].innerText = "Mission Accomplished!";
         }
-        document.getElementById('btn1').addEventListener('click', listener, false);
+        document.getElementById('btn3').addEventListener('click',listener, false)
+        // var listener = function (event) {
+        //     alert('You clicked the button!');
+        // }
+        // document.getElementById('btn1').addEventListener('click', listener, false);
 
     })();
 </script>
