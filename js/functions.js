@@ -8,9 +8,10 @@
  * Example
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
-function sayHello(name) {
-    return "hello " + name;
+function sayHello(name){
+    return ("Hello " + name);
 }
+// const sayHello=name=> `Hello ${name}`;
 
 console.log(sayHello("codeup"));
 /**
@@ -20,8 +21,7 @@ console.log(sayHello("codeup"));
  *
  * console.log 'helloMessage' to check your work
  */
-// sayHello("Vasiliy");
-var helloMessage = sayHello("Vasiliy");
+let helloMessage=sayHello('Vasiliy');
 console.log(helloMessage);
 /**
  * TODO:
@@ -29,8 +29,8 @@ console.log(helloMessage);
  * variable to the 'sayHello' function. You should see the same output in the
  * console.
  */
-var myName = "Vasiliy";
-console.log = (sayHello(myName));
+let myName = "Vasiliy";
+console.log(sayHello(myName));
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
 var random = Math.floor((Math.random() * 3) + 1);
@@ -55,7 +55,7 @@ var random = Math.floor((Math.random() * 3) + 1);
 function isTwo(num) {
     return num === 2;
 }
-
+// const isTwo = num => num === 2;
 console.log(random);
 console.log(isTwo(random));
 /**
@@ -70,13 +70,12 @@ console.log(isTwo(random));
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
 var total = Number(prompt("What is your total?"));
-var tip = Number(prompt("How much would you like to tip?"));
+var tip = Number(prompt("What percentage would you like to tip?"));
 
 function calculateTip(t, p) {
-    return p * (t * .01);
+    return t * (p * .01);
 }
-
-alert("You should tip: $" + calculateTip(total, tip));
+//const calculateTip = ( t , p ) => t * ( p * .01 )
 
 /**
  * TODO:
@@ -84,6 +83,7 @@ alert("You should tip: $" + calculateTip(total, tip));
  * prompt the user for the bill total and a percentage they would like to tip,
  * then display the dollar amount they should tip
  */
+alert("You should tip: $" + calculateTip(total, tip));
 /**
  * TODO:
  * Create a function named `applyDiscount`. This function should accept a price
@@ -105,5 +105,5 @@ var discountValue = Number(prompt("How much discount to apply?"));
 function applyDiscount(i, d) {
     return i - (i * d);
 }
-
-console.log("total is: " + applyDiscount(initialPrice, discountValue));
+//const applyDiscount = (i,d) => i - ( i * d);
+alert("Your total is: " + applyDiscount(initialPrice, discountValue));
