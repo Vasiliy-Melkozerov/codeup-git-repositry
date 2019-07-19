@@ -16,7 +16,6 @@
  * Can you refactor your code to use functions?
  */
 var numberChoice = Number(prompt("Would you like to enter a number?"));
-
 if (numberChoice % 2 === 0) {
     alert("That's an even number");
 } else {
@@ -27,9 +26,7 @@ if (numberChoice <= 0) {
 } else {
     alert("That's a positive number");
 }
-alert (numberChoice + 100);
-
-
+alert(numberChoice + 100 + " is your number plus 100");
 
 
 /* ########################################################################## */
@@ -59,67 +56,85 @@ alert (numberChoice + 100);
 //                  will contain a different color everytime the page loads)
 var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 var randomColor = colors[Math.floor(Math.random() * colors.length)];
+
 function analyzeColor(color) {
-    color = color.toLowercase();
-    if (color === "red"){
-        return "straberries are red";
-    } else if (color === blue) {
-        return "blue is the color of the ocean";
-    } else if ( color === indigo){
-        return "no one uses indigo what should it use"
+    if (color === "red") {
+        return ("strawberries are red");
+    } else if (color === "blue") {
+        return ("blue is the color of the ocean");
+    } else if (color === "indigo") {
+        return ("no one uses indigo what should it use");
+    } else if (color === "violet") {
+        return ('violet is the only appropriate color to describe purple aside from purple');
+    } else if (color === "green") {
+        return ('hulk comes usually in a shade of green');
+    } else if (color === "yellow") {
+        return ('is the color of dandelions');
+    } else if (color === "orange") {
+        return ("is the color of oranges");
+    } else {
+        return ("I don't know anything about" + color);
     }
 }
-//{
-//     if (colors('red') {
-//         return("Red is the color of the communist flag.");
-//     }
-//     else (colors('orange')) {
-//         return("is the color of oranges");
-//     }
-//     else (colors('yellow')) {
-//         return('is the color of dandelions');
-//     }
-//     else (colors('green')) {
-//         return('hulk comes usually in a shade of green');
-//     }
-//     else (colors('blue')) {
-//         return('blue is the color of the ocean');
-//     }
-//     else (colors('indigo')) {
-//         return('indigo is hardly used by anyone');
-//     }
-//     else (colors('violet')) {
-//         return('violet is the only appropriate color to describe purple aside from purple');
-//     }
-// }
+
+console.log(analyzeColor("red"));
+console.log(analyzeColor("brown"));
 
 /**
  * TODO:
  * Pass the `randomColor` variable to your function and console.log the results.
  * You should see a different message everytime you refresh the page
  */
+console.log(analyzeColor(randomColor));
 
 /**
  * TODO:
  * Refactor your above function to use a switch-case statement
  */
-function analyzeColor(color) {
-    color = color.toLowercase();
+function analyzeColorSwitch(color) {
+    color = color.toLowerCase();
+    var message;
     switch (color) {
-        case 'red':
-        message = "strawberries are red"
-        break;
-        case ('blue'):
-            message = "the ocean is blue";
+        case "red":
+            message = "strawberries are red";
+            break;
+        case "blue":
+            message = "blue is the color of the ocean";
+            break;
+        case "cyan":
+            message = "I don't know anything about cyan";
+            break;
+        case "indigo":
+            message = "no one uses indigo what should it use";
+            break;
+        case "violet":
+            message = "violet is the only appropriate color to describe purple aside from purple";
+            break;
+        case "green":
+            message = "hulk comes usually in a shade of green";
+            break;
+        case "yellow":
+            message = "is the color of dandelions";
+            break;
+        case "orange":
+            message = "is the color of oranges";
+            break;
+        default:
+            message = color + " sure is a color.";
             break;
     }
+    return message;
+}
+
+console.log(analyzeColorSwitch(randomColor));
 /**
  * TODO:
  * Prompt the user for a color when the page loads, and pass the input from the
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
-var userColor = prompt('Please enter a color');
+var userColor = prompt("Please enter color.");
+alert(analyzeColorSwitch(userColor));
 /* ########################################################################## */
 
 /**
@@ -141,12 +156,12 @@ var userColor = prompt('Please enter a color');
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
-function calculateTotal(luckNum, initialTotal) {
-switch (luckNum) {
+function calculateTotal(luckNumber, initialTotal) {
+switch (luckNumber) {
     case 0 :
-return initialTotal
+    return initialTotal;
     case 1:
-            return initialTotal * .9;
+        return initialTotal * .9;
     case 2:
         return initialTotal * .75;
     case 3 :
@@ -154,19 +169,24 @@ return initialTotal
     case 4:
         return initialTotal * .5;
     default:
-        return0;
-}
+        return 0;
+    }
 }
 
+console.log(calculateTotal(0, 100));
+console.log(calculateTotal(4, 100));
+console.log(calculateTotal(5, 100));
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 6.
  * Prompt the user for their total bill, then use your `calculateTotal` function
  * and alerts to display to the user what their lucky number was, what their
  * price before the discount was, and what their price after the discount is.
+ *
+ * Generate a random number between 0 and 6
  */
-// Generate a random number between 0 and 6
- var luckyNumber = Math.floor(Math.random() * 6);
-var userTotal = Number(prompt("What was your tital today?"));
+let luckyNumber = Math.floor(Math.random() * 6);
+let userTotal = Number(prompt("What was your total today?"));
 
-alert("Your total is" + userTotal.toFixed(fractionDigits:2) + "Your lucky number was" + luckyNumber + )
+alert("Your total is $"+ userTotal.toFixed(2) +". Your lucky number was " + luckyNumber +
+    " meaning you pay $" + calculateTotal(luckyNumber, userTotal).toFixed(2));
